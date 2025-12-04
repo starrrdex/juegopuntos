@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Atrapa el Cuadrado</title>
+<style>
+  body {
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial;
+    background-color: darkgray;
+  }
+  #cuadrado {
+    width: 50px;
+    height: 50px;
+    background: rgb(245, 165, 237);
+    position: absolute;
+    cursor: pointer;
+  }
+  #puntaje {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 40px;
+    background: #ffffff2e;
+    padding: 5px 10px;
+    border-radius: 6px;
+  }
+</style>
+</head>
+<body>
+
+<div id="puntaje">Puntaje: 0</div>
+<div id="cuadrado"></div>
+
+<script>
+  const cuad = document.getElementById("cuadrado");
+  const punto = document.getElementById("puntaje");
+  let puntos = 0;
+
+  //posicion del cuadrado 
+  function moverCuadrado() {
+    const x = Math.random() * (window.innerWidth - 50);
+    const y = Math.random() * (window.innerHeight - 50);
+    cuad.style.left = x + "px";
+    cuad.style.top = y + "px";
+  }
+
+  //puntajes
+  cuad.addEventListener("click", () => {
+    puntos++;
+    punto.textContent = "Puntaje: " + puntos;
+    moverCuadrado();
+  });
+
+  moverCuadrado();
+</script>
+
+</body>
+</html>
